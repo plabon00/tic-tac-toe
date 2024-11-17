@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="btnColor">#001d3d</color>
+    <color name="btnColor">#212529</color>
 
+    <color name="background">#535A63</color>
     <color name="Ocolor">#007FE4</color>
     <color name="Xcolor">#C7291E</color>
 

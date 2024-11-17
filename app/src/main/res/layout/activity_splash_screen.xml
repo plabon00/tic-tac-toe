@@ -11,10 +11,13 @@
     tools:context=".splashScreen">
 
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="270dp"
-        android:src="@drawable/logo"
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:lottie_rawRes="@raw/tictactoelogo"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_speed="1.5"
         />
 
 </LinearLayout>

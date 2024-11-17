@@ -3,7 +3,7 @@
     <item >
         <shape android:shape="rectangle">
             <corners android:radius="50dp"/>
-            <solid android:color="@color/resetBtn"/>
+            <solid android:color="@color/ic_launcher_background"/>
             <padding
                 android:left="10dp"
                 android:right="10dp"
