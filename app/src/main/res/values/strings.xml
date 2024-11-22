@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <string name="resetBtn">Reset</string>
+    <string name="reset_confirm">Confirm Reset?</string>
+    <string name="confirm_massage">Are You Sure Want to Reset the Game ?</string>
 </resources>

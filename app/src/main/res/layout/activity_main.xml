@@ -114,7 +114,6 @@
         android:layout_gravity="right"
         android:layout_marginRight="20dp"
         android:layout_marginTop="100dp"
-        android:onClick="resetGame"
         android:textColor="@color/white"
         android:pointerIcon="arrow"
         android:text="@string/resetBtn"/>

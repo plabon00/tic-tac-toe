@@ -1,7 +1,11 @@
 package com.example.tictactoe;
 
+import static com.example.tictactoe.R.layout.*;
+
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -10,17 +14,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 ,reset;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 ,reset_button;
     String s1, s2, s3, s4, s5, s6, s7, s8, s9 ;
+    Button cancel_btn, reset_btn ;
     int flag = 0 ;
+    Dialog dialog ;
+
     int count =0 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         inti();
+        dialog = new Dialog(this) ;
+
+        reset_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_main_btn() ;
+            }
+        });
 
     }
 
@@ -34,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
         btn7 = findViewById(R.id.btn7) ;
         btn8 = findViewById(R.id.btn8) ;
         btn9 = findViewById(R.id.btn9) ;
-        reset = findViewById(R.id.reset_button) ;
+        reset_button = findViewById(R.id.reset_button) ;
+        cancel_btn = findViewById(R.id.cancle_btn) ;
+        reset_btn = findViewById(R.id.reset_btn) ;
+
     }
 
 
@@ -110,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     }
     }
 
-    private void newGame(){
+    public void newGame(){
         btn1.setText("");
         btn2.setText("");
         btn3.setText("");
@@ -124,7 +141,32 @@ public class MainActivity extends AppCompatActivity {
         flag = 0 ;
     }
 
-    public void resetGame(View view) {
-        newGame();
+    public void dialog_main_btn(){
+        dialog.setContentView(reset_dialouge_box_msg);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        cancel_btn = dialog.findViewById(R.id.cancle_btn);
+        reset_btn = dialog.findViewById(R.id.reset_btn);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.reset_dialoge_bg));
+        dialog.show();
+
+    cancel_btn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dialog.cancel();
+        }
+    });
+
+    reset_btn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            newGame();
+            dialog.cancel();
+        }
+    });
+
     }
+
+
 }
